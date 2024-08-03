@@ -3,22 +3,8 @@
 	"name": "Obligitory Weather App",
 	"description": "You know how all software devs create a weather app for their portfolio? This is mine.",
 	"version": "1.0.0",
-	"icons": {
-		"16":"/images/HUC16.png",
-		"48": "/images/HUC48.png",
-		"128": "/images/HUC128.png"
-	},
-	"action": {
-		"default_icon": {
-			"16": ".png",
-			"48": ".png",
-			"128": ".png"
-		},
-		"default_popup": "index.html"
-	},
-	"content_scripts": [{
-		"matches": ["<all_urls>"]
-	}],
+	"action":{
+	"default_popup": "index.html"},
 	"permissions": [
 		"storage"
 	]
