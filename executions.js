@@ -10,20 +10,21 @@ async function populateDiv()
 	let span = document.createElement('span');
 	let rjson = await response.json();
 	let rbody = await response.body;
-	
-	console.log(response.body);
-	console.log(response.json());
+	let spacer=document.createElement('span');
+	spacer.textContent='[logtime]';
+	//console.log(response.body);working with streams can only be consumed once
+	//console.log(response.json());
 	console.log(rjson);
 	console.log(rbody);
-	console.log('');
-	console.log('');
+	console.log('logging context element: '+rjson['@context']);
+	console.log('logging id element: '+ rjson.id);
 	console.log('');
 	console.log('');
 	console.log('');
 	span.textContent = JSON.stringify(rjson);
 
 	debugDiv.appendChild(span);
-	
+	debugDiv.appendChild(spacer);
 }
 
 populateDiv();
