@@ -13,10 +13,15 @@ async function populateDiv()
 	let rbody = await response.body;
 	let spacer=document.createElement('span');
 	let forecastURL = rjson.properties.forecast;
+	let currentForecast = document.createElement('span');
 	spacer.textContent='[logtime]';
 
 	let forecast = await fetch(forecastURL);
 	let fjson = await forecast.json();
+	let foreText = 'Current Forecast: Temp: '
+	+ JSON.stringify(fjson.properties.periods[0].temperature)
+	+ JSON.stringify(fjson.properties.periods[0].temperatureUnit).charAt(1);
+	currentForecast.textContent=foreText;
 	//console.log(response.body);working with streams can only be consumed once
 	//console.log(response.json());
 	console.log(rjson);
@@ -28,9 +33,12 @@ async function populateDiv()
 	console.log('logging forcast URL: '+forecastURL);
 	console.log('log forcast '+ JSON.stringify(fjson));
 	span.textContent = JSON.stringify(rjson);
-
+	//fjson.properties.periods[0]
+	console.log('log individual temperature: '+JSON.stringify(fjson.properties.periods[0].temperature)+' '+JSON.stringify(fjson.properties.periods[0].temperatureUnit));
+	console.log('log current short summary: '+JSON.stringify(fjson.properties.periods[0].shortForecast));
 	debugDiv.appendChild(span);
 	debugDiv.appendChild(spacer);
+	debugDiv.appendChild(currentForecast);
 }
 
 populateDiv();
