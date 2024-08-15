@@ -3,6 +3,11 @@
 	"name": "Obligitory Weather App",
 	"description": "You know how all software devs create a weather app for their portfolio? This is mine.",
 	"version": "1.0.0",
+	"icons":{
+		"16": "/img/day_clear.png",
+		"48": "/img/day_clear.png",
+		"128": "/img/day_clear.png"
+	},
 	"action":{
 	"default_popup": "index.html"},
 	"permissions": [
