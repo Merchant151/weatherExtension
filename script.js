@@ -9,11 +9,17 @@ async function main()
 	let testString = document.getElementById('debugscript');
 	let str = document.createElement('span');
 	let weatherData = await weather();
+	let forecast = weatherData.properties.periods[0];
 	let temp = JSON.stringify(weatherData.properties.periods[0].temperature);
 	let unit = JSON.stringify(weatherData.properties.periods[0].temperatureUnit);
 	let shorty = JSON.stringify(weatherData.properties.periods[0].shortForecast);
+	let speed = JSON.stringify(forecast.windSpeed);
+	let time = JSON.stringify(weatherData.properties.generatedAt);
+	let rain = JSON.stringify(forecast.probabilityOfPrecipitation.value);
 	//let temp = JSON.stringify(weatherData.properties.perods[0].temperature);
-	str.textContent = ''+temp+unit+shorty;
+	str.textContent = ''+temp+unit+shorty+speed+rain+time;
+	let grabOne = document.getElementById('Temp');
+	grabOne.textContent = temp+"°";
 	testString.appendChild(str);
 
 
