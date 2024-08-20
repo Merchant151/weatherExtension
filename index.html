@@ -14,6 +14,7 @@
 			height:auto;
 		}
 		#Temp {font-family: 'American Typewriter';font-size: 80px; color:red; display:inline; font-weight: bolder;}
+		#Unit {font-Family: 'American Typewriter';Font-size: 60px; color:red; display:inline; font-weight: bold;}
 		.weather {font-family: 'American Typewriter'; font-size: 45px; color:green; font-weight: lighter;}
 	</style>
 	<body>
@@ -26,13 +27,12 @@
 			<p>
 			<div id='picTemp'>
 			<img src='./img/day_clear.png'width="30" />
-			<span id='Temp'>102°F</span>
+			<span id='Temp'>102°</span><span id='Unit'>F</span>
 			</div>
-			<span class='weather'>Partly Cloudy</span>
+			<span id='shortCast' class='weather'>Partly Cloudy</span>
 			<br></br>
-			<span>Percipitation: 30%</span>
-			<span>Wind: 10mph</span>
-			<span>humidity 40%</span>
+			<span id= 'rain'>Percipitation: 30%</span>
+			 <span id= 'wind'>Wind: 10mph</span>
 			</p>
 			<div class="borderdiv"></div>
 			<img src='./img/day_clear.png'>

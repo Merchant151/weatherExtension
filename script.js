@@ -19,7 +19,14 @@ async function main()
 	//let temp = JSON.stringify(weatherData.properties.perods[0].temperature);
 	str.textContent = ''+temp+unit+shorty+speed+rain+time;
 	let grabOne = document.getElementById('Temp');
+	let shortCast = document.getElementById('shortCast');
+	let elementR = document.getElementById('rain');
+	let elementW = document.getElementById('wind');
+	if (rain == 'null'){rain = '0';console.log('rain null;');}else{console.log('rain true');};
+	elementR.textContent = 'Percipitation: '+rain+'%';
+	elementW.textContent = 'Wind: '+speed.slice(1,-1);
 	grabOne.textContent = temp+"°";
+	shortCast.textContent = shorty.slice(1,-1);
 	testString.appendChild(str);
 
 
