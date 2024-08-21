@@ -9,6 +9,7 @@ async function main()
 	let testString = document.getElementById('debugscript');
 	let str = document.createElement('span');
 	let weatherData = await weather();
+	//let time = 
 	let forecast = weatherData.properties.periods[0];
 	let temp = JSON.stringify(weatherData.properties.periods[0].temperature);
 	let unit = JSON.stringify(weatherData.properties.periods[0].temperatureUnit);
@@ -28,6 +29,13 @@ async function main()
 	grabOne.textContent = temp+"°";
 	shortCast.textContent = shorty.slice(1,-1);
 	testString.appendChild(str);
+
+	//location work
+	let locally = await local();
+	let city = locally.city;
+	let state= locally.state;
+	let docLocal = document.getElementById('local');
+	docLocal.textContent = city+', '+state+' 09:35pm EDT'
 
 
 
@@ -52,6 +60,21 @@ async function weather()
 	let weatherData = await forecast.json();
 	console.log(weatherData);
 	return weatherData;
+
+}
+
+async function local()
+{
+	const cords = "38.8977,-77.0365"
+	const apiStr= "https://api.weather.gov/points/";
+	
+	let apiResult = await fetch(apiStr+cords);
+	let jsonGetter = await apiResult.json();
+	console.log(jsonGetter);
+	console.log(jsonGetter.properties.relativeLocation.properties.city)
+	console.log(jsonGetter.properties.relativeLocation.properties.state);
+	console.log(jsonGetter.properties.relativeLocation.properties);	
+	return      jsonGetter.properties.relativeLocation.properties;
 
 }
 
