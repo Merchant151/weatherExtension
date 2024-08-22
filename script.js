@@ -35,9 +35,10 @@ async function main()
 	let city = locally.city;
 	let state= locally.state;
 	let docLocal = document.getElementById('local');
-	docLocal.textContent = city+', '+state+' 09:35pm EDT'
-
-
+	docLocal.textContent = city+', '+state+' '+time.slice(1,-1)//' 09:35pm EDT'
+	
+	//location time
+	console.log(time);
 
 }
 
