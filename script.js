@@ -35,7 +35,12 @@ async function main()
 	let city = locally.city;
 	let state= locally.state;
 	let docLocal = document.getElementById('local');
-	docLocal.textContent = city+', '+state+' '+time.slice(1,-1)//' 09:35pm EDT'
+	console.log('time: '+time);
+	let hour = time.slice(12,-13);//not sure how to handle time conversions
+	let maridian = ' AM';
+	if (Number(hour) >= 12){ maridian = ' PM';hour = Number(hour)-12; }
+	if (Number(hour) == 0) {hour = 12;}
+	docLocal.textContent = city+', '+state+' '+hour+maridian//' 09:35pm EDT'
 	
 	//location time
 	console.log(time);
