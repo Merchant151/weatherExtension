@@ -12,7 +12,8 @@
 	"default_popup": "index.html"},
 	"permissions": [
 		"storage",
-		"offscreen"
+		"offscreen",
+		"geolocation"
 	]
 
 }
