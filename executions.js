@@ -39,6 +39,20 @@ async function populateDiv()
 	debugDiv.appendChild(span);
 	debugDiv.appendChild(spacer);
 	debugDiv.appendChild(currentForecast);
+
+	//testing current location
+	//
+	let myNewPromise = await navigator.geolocation.getCurrentPosition(callback);
+	console.log('geolocation testing');
+	console.log(myNewPromise);
+	let span2 = document.createElement('span');
+	span2.textContent=myNewPromise;
+	debugDiv.appendChild(span2);
+	
 }
 
 populateDiv();
+
+function callback(){
+	console.log('do nothing');
+}
