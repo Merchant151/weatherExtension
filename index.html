@@ -13,17 +13,22 @@
 			width:70px;
 			height:auto;
 		}
+		#localRefresh {width:30px; height:auto;display:inline-block;}
+		#local {font-size: 25px;}
 		#Temp {font-family: 'American Typewriter';font-size: 80px; color:red; display:inline; font-weight: bolder;}
 		#Unit {font-Family: 'American Typewriter';Font-size: 60px; color:red; display:inline; font-weight: bold;}
 		.weather {font-family: 'American Typewriter'; font-size: 45px; color:green; font-weight: lighter;}
+		.locBox {display: inline-flex;}
 	</style>
 	<body>
 		<main>
 			<h1>Welcome to my obligitory weather app</h1>
 			<button type 'button' id='debug'>Debug</button>
 			<br></br>
-			<span id =local>Washington, George 12:30pm EDT</span>
-			<img src='./img/Icon.png'>
+			<div class='locBox'>
+			<span id ='local'>Washington, George 12:30pm EDT</span>
+			<img id= 'localRefresh' src='./img/Icon.svg'>
+			</div>
 			<br></br>
 			<p>
 			<div id='picTemp'>
