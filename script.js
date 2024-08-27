@@ -1,3 +1,7 @@
+document.getElementById('localRefresh').onclick = async function()
+{
+	console.log('local refresh image clicked');
+}
 
 async function main()
 {
