@@ -3,11 +3,15 @@ document.getElementById('localRefresh').onclick = async function()
 	console.log('local refresh image clicked');
 }
 
+const tooltip = document.getElementById('hidden');
+const refresh = document.getElementById('localRefresh');
 async function main()
 {
 	//debug button
 	document.getElementById('debug').addEventListener("click",function(){console.log('goto Debug');window.location.href='debug.html';});
-	
+	//tooltip popup
+	refresh.addEventListener('mouseover', function() {tooltip.classList.add('show');});
+	refresh.addEventListener('mouseout', function() {tooltip.classList.remove('show');});
 	//get forcast.
 	//add to index.html
 	let testString = document.getElementById('debugscript');
