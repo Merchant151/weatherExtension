@@ -1,7 +1,3 @@
-document.getElementById('localRefresh').onclick = async function()
-{
-	console.log('local refresh image clicked');
-}
 
 const tooltip = document.getElementById('hidden');
 const refresh = document.getElementById('localRefresh');
@@ -9,9 +5,6 @@ async function main()
 {
 	//debug button
 	document.getElementById('debug').addEventListener("click",function(){console.log('goto Debug');window.location.href='debug.html';});
-	//tooltip popup
-	refresh.addEventListener('mouseover', function() {tooltip.classList.add('show');});
-	refresh.addEventListener('mouseout', function() {tooltip.classList.remove('show');});
 	//get forcast.
 	//add to index.html
 	let testString = document.getElementById('debugscript');
@@ -38,6 +31,18 @@ async function main()
 	shortCast.textContent = shorty.slice(1,-1);
 	testString.appendChild(str);
 
+	//location refresh work 
+	refresh.onclick = async function namedFunc() {	
+		console.log('test1');
+		try{
+			let myNewPromise = await navigator.geolocation.getCurrentPosition(callback);
+			console.log(myNewPromise);
+		}catch (error) { console.log('unable to find location'); console.log(error);}
+	}
+	//tooltip popup
+	refresh.addEventListener('mouseover', function() {tooltip.classList.add('show');});
+	refresh.addEventListener('mouseout', function() {tooltip.classList.remove('show');});
+		
 	//location work
 	let locally = await local();
 	let city = locally.city;
