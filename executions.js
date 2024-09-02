@@ -52,7 +52,17 @@ async function populateDiv()
 }
 
 populateDiv();
+GeoPermissionTest();
 
 function callback(){
 	console.log('do nothing');
 }
+
+function GeoPermissionTest()
+{
+	//lets use navigator.permssion.query
+	//I need to prompt the user for the location permission!!!!
+	navigator.permissions.query({name: 'geolocation'}).then(function(permissionStatus) {console.log('geolocation status:',permissionStatus.state)});
+
+}
+
