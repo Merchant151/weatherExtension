@@ -35,7 +35,8 @@ async function main()
 	refresh.onclick = async function namedFunc() {	
 		console.log('test1');
 		try{
-			let myNewPromise = await navigator.geolocation.getCurrentPosition(callback);
+			//let myNewPromise = await navigator.geolocation.getCurrentPosition(callback);
+			let myNewPromise = await new Promise((resolve,reject)=> navigator.geolocation.getCurrentPosition(resolve,reject));
 			console.log(myNewPromise);
 		}catch (error) { console.log('unable to find location'); console.log(error);}
 	}
