@@ -36,8 +36,9 @@ async function main()
 		console.log('test1');
 		try{
 			//let myNewPromise = await navigator.geolocation.getCurrentPosition(callback);
+			console.log('trying for message');
 			let myNewPromise = await new Promise((resolve,reject)=> navigator.geolocation.getCurrentPosition(resolve,reject));
-			console.log(myNewPromise);
+			console.log('hello ',myNewPromise);
 		}catch (error) { console.log('unable to find location'); console.log(error);}
 	}
 	//tooltip popup
