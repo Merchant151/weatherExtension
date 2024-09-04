@@ -35,11 +35,25 @@ async function main()
 	refresh.onclick = async function namedFunc() {	
 		console.log('test1');
 		try{
+			/*
 			//let myNewPromise = await navigator.geolocation.getCurrentPosition(callback);
 			console.log('trying for message');
 			let myNewPromise = await new Promise((resolve,reject)=> navigator.geolocation.getCurrentPosition(resolve,reject));
 			console.log('hello ',myNewPromise);
+			*/
+			//try again
+			let myNewPromise = await new Promise((resolve,reject) => {navigator.geolocation.getCurrentPosition(
+				(position) => {
+						console.log('success');
+						resolve(position);
+				},
+				(error) => {
+						console.error('error: ', error);
+						reject(error);
+				}
+			);});
 		}catch (error) { console.log('unable to find location'); console.log(error);}
+
 	}
 	//tooltip popup
 	refresh.addEventListener('mouseover', function() {tooltip.classList.add('show');});
