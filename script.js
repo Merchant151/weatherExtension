@@ -48,8 +48,14 @@ async function main()
 						resolve(position);
 				},
 				(error) => {
+						console.log('atempting to log an error!!!')
 						console.error('error: ', error);
 						reject(error);
+				},
+				{
+					enableHighAccuracy: true,
+					timeout: 5000,
+					maximumAge: 0
 				}
 			);});
 		}catch (error) { console.log('unable to find location'); console.log(error);}
