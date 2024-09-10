@@ -45,6 +45,7 @@ async function main()
 			let myNewPromise = await new Promise((resolve,reject) => {navigator.geolocation.getCurrentPosition(
 				(position) => {
 						console.log('success');
+						console.log('pos :' + position);
 						resolve(position);
 				},
 				(error) => {
@@ -58,8 +59,9 @@ async function main()
 					maximumAge: 0
 				}
 			);});
+			console.log(myNewPromise);
 		}catch (error) { console.log('unable to find location'); console.log(error);}
-
+		
 	}
 	//tooltip popup
 	refresh.addEventListener('mouseover', function() {tooltip.classList.add('show');});
