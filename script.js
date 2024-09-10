@@ -54,7 +54,7 @@ async function main()
 						reject(error);
 				},
 				{
-					enableHighAccuracy: true,
+					enableHighAccuracy: false,
 					timeout: 5000,
 					maximumAge: 0
 				}
