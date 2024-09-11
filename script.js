@@ -45,9 +45,9 @@ async function main()
 			let myNewPromise = await new Promise((resolve,reject) => {navigator.geolocation.getCurrentPosition(
 				(position) => {
 						console.log('success');
-						console.log('pos :' + position);
+						console.log('pos :' + position.coords);
 						resolve(position);
-				},
+				}
 				(error) => {
 						console.log('atempting to log an error!!!')
 						console.error('error: ', error);
@@ -59,7 +59,11 @@ async function main()
 					maximumAge: 0
 				}
 			);});
-			console.log(myNewPromise);
+			console.log(myNewPromise.coords.latitude+', '+myNewPromise.coords.longitude);
+			console.log(myNewPromise.coords);
+			let latLong = [myNewPromise.coords.lattitude,myNewPromise.coords.logitude]
+			let loc = {[local]:latLong}
+			chrome.storage.local.set(loc);
 		}catch (error) { console.log('unable to find location'); console.log(error);}
 		
 	}
