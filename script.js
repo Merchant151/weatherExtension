@@ -31,45 +31,6 @@ async function main()
 	shortCast.textContent = shorty.slice(1,-1);
 	testString.appendChild(str);
 
-	//location refresh work 
-	refresh.onclick = async function namedFunc() {	
-		console.log('test1');
-		try{
-			/*
-			//let myNewPromise = await navigator.geolocation.getCurrentPosition(callback);
-			console.log('trying for message');
-			let myNewPromise = await new Promise((resolve,reject)=> navigator.geolocation.getCurrentPosition(resolve,reject));
-			console.log('hello ',myNewPromise);
-			*/
-			//try again
-			let myNewPromise = await new Promise((resolve,reject) => {navigator.geolocation.getCurrentPosition(
-				(position) => {
-						console.log('success');
-						console.log('pos :' + position.coords);
-						resolve(position);
-				}
-				(error) => {
-						console.log('atempting to log an error!!!')
-						console.error('error: ', error);
-						reject(error);
-				},
-				{
-					enableHighAccuracy: false,
-					timeout: 5000,
-					maximumAge: 0
-				}
-			);});
-			console.log(myNewPromise.coords.latitude+', '+myNewPromise.coords.longitude);
-			console.log(myNewPromise.coords);
-			let latLong = [myNewPromise.coords.lattitude,myNewPromise.coords.logitude]
-			let loc = {[local]:latLong}
-			chrome.storage.local.set(loc);
-		}catch (error) { console.log('unable to find location'); console.log(error);}
-		
-	}
-	//tooltip popup
-	refresh.addEventListener('mouseover', function() {tooltip.classList.add('show');});
-	refresh.addEventListener('mouseout', function() {tooltip.classList.remove('show');});
 		
 	//location work
 	let locally = await local();
@@ -126,5 +87,37 @@ async function local()
 }
 
 main();
+	//location refresh work 
+	refresh.onclick = async function namedFunc() {	
+		//console.log('test1');
+		try{
+			let myNewPromise = await new Promise((resolve,reject) => {navigator.geolocation.getCurrentPosition(
+				(position) => {
+						console.log('success');
+						console.log('pos :' + position.coords);
+						resolve(position);
+				}
+				(error) => {
+						console.log('atempting to log an error!!!')
+						console.error('error: ', error);
+						reject(error);
+				},
+				{
+					enableHighAccuracy: false,
+					timeout: 5000,
+					maximumAge: 0
+				}
+			);});
+			console.log(myNewPromise.coords.latitude+', '+myNewPromise.coords.longitude);
+			console.log(myNewPromise.coords);
+			let latLong = [myNewPromise.coords.lattitude,myNewPromise.coords.logitude]
+			let loc = {[local]:latLong}
+			chrome.storage.local.set(loc);
+		}catch (error) { console.log('unable to find location'); console.log(error);}
+		
+	}
+	//tooltip popup
+	refresh.addEventListener('mouseover', function() {tooltip.classList.add('show');});
+	refresh.addEventListener('mouseout', function() {tooltip.classList.remove('show');});
 
 

@@ -53,6 +53,13 @@ async function populateDiv()
 
 populateDiv();
 GeoPermissionTest();
+logKeys();
+
+function logKeys(){
+
+let keys = chrome.storage.sync.get(null);
+console.log(keys);
+}
 
 function callback(){
 	console.log('do nothing');
