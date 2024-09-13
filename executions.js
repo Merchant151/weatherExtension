@@ -55,10 +55,10 @@ populateDiv();
 GeoPermissionTest();
 logKeys();
 
-function logKeys(){
+async function logKeys(){
 
-let keys = chrome.storage.sync.get(null);
-console.log(keys);
+let keys = await chrome.storage.sync.get(null);
+console.log('logging keys',keys);
 }
 
 function callback(){

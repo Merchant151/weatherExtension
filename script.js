@@ -96,7 +96,7 @@ main();
 						console.log('success');
 						console.log('pos :' + position.coords);
 						resolve(position);
-				}
+				},
 				(error) => {
 						console.log('atempting to log an error!!!')
 						console.error('error: ', error);
