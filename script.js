@@ -110,9 +110,14 @@ main();
 			);});
 			console.log(myNewPromise.coords.latitude+', '+myNewPromise.coords.longitude);
 			console.log(myNewPromise.coords);
-			let latLong = [myNewPromise.coords.lattitude,myNewPromise.coords.logitude]
-			let loc = {[local]:latLong}
-			chrome.storage.local.set(loc);
+			let latLong = [myNewPromise.coords.latitude,myNewPromise.coords.longitude]
+			let loc = {'local':latLong}
+			console.log('logging loc:',loc['local']);
+			chrome.storage.local.set({'key1':latLong}).then(() => {console.log('value is set')});
+			//fast storage test????
+			///chrome.storage.local.get(['key1'], (result) => {
+    			///console.log('Retrieved value:', result.key1);
+			//});
 		}catch (error) { console.log('unable to find location'); console.log(error);}
 		
 	}
