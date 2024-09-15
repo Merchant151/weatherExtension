@@ -10,7 +10,6 @@ async function main()
 	let testString = document.getElementById('debugscript');
 	let str = document.createElement('span');
 	let weatherData = await weather();
-	//let time = 
 	let forecast = weatherData.properties.periods[0];
 	let temp = JSON.stringify(weatherData.properties.periods[0].temperature);
 	let unit = JSON.stringify(weatherData.properties.periods[0].temperatureUnit);
@@ -52,7 +51,7 @@ async function main()
 async function weather()
 {
 	///these consts are temporary
-	const cords = "38.8977,-77.0365"
+	const cords = await getCords();
 	const apiStr= "https://api.weather.gov/points/";
 
 	//process needed to build forcast from cords 
@@ -63,7 +62,7 @@ async function weather()
 	 */
 	let stationParent = await fetch(apiStr+cords);
 	let station = await (stationParent.json())
-	let stationURL= await station.properties.forecast
+	let stationURL= await station.properties.forecast;
 	let forecast = await fetch(stationURL);
 	let weatherData = await forecast.json();
 	console.log(weatherData);
@@ -73,7 +72,8 @@ async function weather()
 
 async function local()
 {
-	const cords = "38.8977,-77.0365"
+
+	const cords = await getCords();
 	const apiStr= "https://api.weather.gov/points/";
 	
 	let apiResult = await fetch(apiStr+cords);
@@ -86,7 +86,30 @@ async function local()
 
 }
 
+async function getCords()
+{
+	let cord = await chrome.storage.local.get(['key1']);
+	//console.log('getting cords',cord);
+	//console.log(cord.key1[0]);
+	//console.log(cord.key1[1]);
+	if (typeof cord.key1 === 'undefined')
+	{
+		console.log('no previously stored location! please refresh or enter location!');
+		return '38.8977,-77.0365';
+	}else 
+	{
+		console.log('foud storage attempting to return location!');
+		let x = ""+cord.key1[0]+","+cord.key1[1];
+		console.log(x);
+		return x;
+	}
+
+}
+
 main();
+
+//debug get cords 
+getCords();
 	//location refresh work 
 	refresh.onclick = async function namedFunc() {	
 		//console.log('test1');
