@@ -57,7 +57,7 @@ logKeys();
 
 async function logKeys(){
 
-let keys = await chrome.storage.sync.get(null);
+let keys = await chrome.storage.local.get(null,(result) => {console.log('got result',result)} );
 console.log('logging keys',keys);
 }
 
