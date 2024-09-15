@@ -1,4 +1,7 @@
-const cords = "38.8977,-77.0365";
+let cord = await chrome.storage.local.get(['key1']);
+let x = ''+cord.key1[0]+','+cord.key1[1]
+
+const cords = x;
 var debugDiv = document.getElementById('logdiv1');
 
 //forcast runs for logging purpose. 

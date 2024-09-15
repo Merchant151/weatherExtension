@@ -109,7 +109,7 @@ async function getCords()
 main();
 
 //debug get cords 
-getCords();
+//getCords();
 	//location refresh work 
 	refresh.onclick = async function namedFunc() {	
 		//console.log('test1');
