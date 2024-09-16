@@ -1,7 +1,8 @@
-let cord = chrome.storage.local.get(['key1']);
-let x = ''+cord.key1[0]+','+cord.key1[1]
+async function debugStorage(){
 
-const cords = x;
+let res =  await chrome.storage.local.get(['key1']);
+return res;
+}
 var debugDiv = document.getElementById('logdiv1');
 
 //forcast runs for logging purpose. 
@@ -9,6 +10,10 @@ fetch("https://api.weather.gov/points/38.8977,-77.0365").then((response) => resp
 
 async function populateDiv()
 {
+	let cord = await debugStorage();
+	console.log(cord);
+	let x = await ''+cord.key1[0]+','+cord.key1[1]
+	const cords = x;
 	//going to need to catch exceptions here for web api errors.:
 	let response = await fetch("https://api.weather.gov/points/"+cords);
 	let span = document.createElement('span');
@@ -61,7 +66,7 @@ logKeys();
 async function logKeys(){
 
 let keys = await chrome.storage.local.get(null,(result) => {console.log('got result',result)} );
-console.log('logging keys',keys);
+console.log('logging keys',keys.key1);
 }
 
 function callback(){
