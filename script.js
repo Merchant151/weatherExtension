@@ -62,9 +62,18 @@ async function weather()
 	 */
 	let stationParent = await fetch(apiStr+cords);
 	let station = await (stationParent.json())
+	console.log('station!')
+	console.log(station);
 	let stationURL= await station.properties.forecast;
+	let stationHourlyURL = await station.properties.forecastHourly;
+	console.log('station hourly url',stationHourlyURL);
+	let hourly = await fetch(stationHourlyURL);
+	let hourlyData = await hourly.json();
+	console.log('hourly forecast');
+	console.log(hourlyData);
 	let forecast = await fetch(stationURL);
 	let weatherData = await forecast.json();
+	console.log('loging weather data:');
 	console.log(weatherData);
 	return weatherData;
 
