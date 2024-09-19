@@ -9,6 +9,7 @@ async function main()
 	//add to index.html
 	let testString = document.getElementById('debugscript');
 	let str = document.createElement('span');
+	let img = document.getElementById('weatherpic');
 	let weatherData = await weather();
 	let forecast = weatherData.properties.periods[0];
 	let temp = JSON.stringify(weatherData.properties.periods[0].temperature);
@@ -28,6 +29,7 @@ async function main()
 	elementW.textContent = 'Wind: '+speed.slice(1,-1);
 	grabOne.textContent = temp+"°";
 	shortCast.textContent = shorty.slice(1,-1);
+	img.src = imgCase(shorty.slice(1,-1));
 	testString.appendChild(str);
 
 		
@@ -47,6 +49,25 @@ async function main()
 	console.log(time);
 
 }
+
+async function imgCase(x)
+
+{
+	console.log('logging imgCase');
+	switch (x) 
+	{
+		case 'ok':
+			console.log('ok');
+			break;
+		default:
+			console.log('default case');
+	
+	}
+	console.log(x);
+	return './img/day_clear.png';
+
+}
+
 
 async function weather()
 {
