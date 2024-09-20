@@ -29,7 +29,7 @@ async function main()
 	elementW.textContent = 'Wind: '+speed.slice(1,-1);
 	grabOne.textContent = temp+"°";
 	shortCast.textContent = shorty.slice(1,-1);
-	img.src = imgCase(shorty.slice(1,-1));
+	img.src = await imgCase(shorty.slice(1,-1));
 	testString.appendChild(str);
 
 		
@@ -51,20 +51,73 @@ async function main()
 }
 
 async function imgCase(x)
+	let path = './img/'
 
 {
 	console.log('logging imgCase');
 	switch (x) 
 	{
-		case 'ok':
-			console.log('ok');
+		case 'Sunny':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
 			break;
+		case 'Partly Cloudy':
+			console.log('day_partial_cloud.png');
+			path = path+'day_partial_cloud.png';
+			break;
+		case 'Sunny15':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny14':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny13':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny12':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny11':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny10':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny9':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny8':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny7':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny6':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny5':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny4':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny3':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny2':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+		case 'Sunny1':
+			console.log('day_clear.png');
+			path = path+'day_partial_cloud.png';
+
 		default:
 			console.log('default case');
+			path = path+'angry_clouds.png';
 	
 	}
 	console.log(x);
-	return './img/day_clear.png';
+	return path;
 
 }
 
