@@ -51,9 +51,8 @@ async function main()
 }
 
 async function imgCase(x)
-	let path = './img/'
-
 {
+	let path = './img/'
 	console.log('logging imgCase');
 	switch (x) 
 	{
