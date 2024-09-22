@@ -65,7 +65,7 @@ async function imgCase(x)
 			path = path+'day_partial_cloud.png';
 			break;
 		case 'Mostly Sunny':
-			console.log('day_clear.png');
+			console.log('mostly sunny');
 			path = path+'day_partial_cloud.png';
 		case 'Partly Sunny':
 			console.log('day_clear.png');
@@ -76,9 +76,9 @@ async function imgCase(x)
 		case 'Cloudy':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
-		case 'Sunny11':
-			console.log('day_clear.png');
-			path = path+'day_partial_cloud.png';
+		case 'patchy Drizzle':
+			console.log('patchy drizzle');
+			path = path+'day_rain';
 		case 'Sunny10':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
