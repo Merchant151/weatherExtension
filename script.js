@@ -16,7 +16,7 @@ async function main()
 	let unit = JSON.stringify(weatherData.properties.periods[0].temperatureUnit);
 	let shorty = JSON.stringify(weatherData.properties.periods[0].shortForecast);
 	let speed = JSON.stringify(forecast.windSpeed);
-	let time = JSON.stringify(weatherData.properties.generatedAt);
+	let time = JSON.stringify(weatherData.properties.periods[0].startTime);
 	let rain = JSON.stringify(forecast.probabilityOfPrecipitation.value);
 	//let temp = JSON.stringify(weatherData.properties.perods[0].temperature);
 	str.textContent = ''+temp+unit+shorty+speed+rain+time;
@@ -78,7 +78,7 @@ async function imgCase(x)
 			path = path+'day_partial_cloud.png';
 		case 'patchy Drizzle':
 			console.log('patchy drizzle');
-			path = path+'day_rain';
+			path = path+'day_rain.png';
 		case 'Sunny10':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
