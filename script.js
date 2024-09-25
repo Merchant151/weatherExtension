@@ -79,9 +79,9 @@ async function imgCase(x)
 		case 'patchy Drizzle':
 			console.log('patchy drizzle');
 			path = path+'day_rain.png';
-		case 'Sunny10':
-			console.log('day_clear.png');
-			path = path+'day_partial_cloud.png';
+		case 'Slight Chance Showers And Thunderstorms':
+			console.log('slight showers and thunderstomrs');
+			path = path+'day_rain_thunder.png';
 		case 'Sunny9':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
