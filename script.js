@@ -67,49 +67,63 @@ async function imgCase(x)
 		case 'Mostly Sunny':
 			console.log('mostly sunny');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Partly Sunny':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Mostly Cloudy':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Cloudy':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'patchy Drizzle':
 			console.log('patchy drizzle');
 			path = path+'day_rain.png';
+			break;
 		case 'Slight Chance Showers And Thunderstorms':
 			console.log('slight showers and thunderstomrs');
 			path = path+'day_rain_thunder.png';
-		case 'Sunny9':
+			break;
+		case 'Chance Rain Showers':
+			console.log('chance rain showers');
+			path = path+'day_rain_thunder.png';
+			break;
+		case 'Showers And Thunderstorms':
 			console.log('day_clear.png');
-			path = path+'day_partial_cloud.png';
-		case 'Sunny8':
-			console.log('day_clear.png');
-			path = path+'day_partial_cloud.png';
+			path = path+'day_rain_thunder.png';
+			break;
 		case 'Sunny7':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Sunny6':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Sunny5':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Sunny4':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Sunny3':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Sunny2':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
+			break;
 		case 'Sunny1':
 			console.log('day_clear.png');
 			path = path+'day_partial_cloud.png';
-
+			break;
 		default:
 			console.log('default case');
 			path = path+'angry_clouds.png';
